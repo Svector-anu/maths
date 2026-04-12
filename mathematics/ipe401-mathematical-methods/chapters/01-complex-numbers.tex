@@ -1,0 +1,147 @@
+\chapter{Complex Numbers}
+
+\begin{remark}
+In engineering, the imaginary unit is written $j$ (rather than $i$) to avoid
+confusion with electric current.
+\end{remark}
+
+% -------------------------------------------------------
+\section{Definition}
+% -------------------------------------------------------
+
+\begin{definition}[Complex Number]
+A \textbf{complex number} is an expression of the form
+\[
+  z = x + jy,
+\]
+where $x = \operatorname{Re}(z)$ is the \textbf{real part}, $y = \operatorname{Im}(z)$ is the
+\textbf{imaginary part}, and $j = \sqrt{-1}$.
+\end{definition}
+
+% -------------------------------------------------------
+\section{Argand Diagram}
+% -------------------------------------------------------
+
+\begin{definition}[Argand Diagram]
+The \textbf{Argand diagram} is a Cartesian plane used to represent complex numbers
+geometrically:
+\begin{itemize}
+  \item the horizontal axis represents the real part,
+  \item the vertical axis represents the imaginary part.
+\end{itemize}
+The complex number $z = x + jy$ corresponds to the point $(x, y)$.
+\end{definition}
+
+% -------------------------------------------------------
+\section{Modulus and Argument}
+% -------------------------------------------------------
+
+\begin{definition}[Modulus]
+The \textbf{modulus} (or absolute value) of $z = x + jy$ is the distance from the
+origin to the point $(x,y)$:
+\[
+  |z| = r = \sqrt{x^2 + y^2}.
+\]
+\end{definition}
+
+\begin{definition}[Argument]
+The \textbf{argument} of $z$ is the angle $\theta$ that the line $Oz$ makes with the
+positive real axis:
+\[
+  \theta = \arg(z) = \tan^{-1}\!\left(\frac{y}{x}\right).
+\]
+The \textbf{principal argument} satisfies $-\pi < \theta \leq \pi$.
+\end{definition}
+
+% -------------------------------------------------------
+\section{Polar and Exponential Forms}
+% -------------------------------------------------------
+
+\begin{definition}[Polar Form]
+Using $x = r\cos\theta$ and $y = r\sin\theta$, any complex number can be written as
+\[
+  z = r(\cos\theta + j\sin\theta).
+\]
+\end{definition}
+
+\begin{definition}[Exponential Form]
+By Euler's formula (Section~\ref{sec:euler}), the polar form condenses to
+\[
+  z = re^{j\theta}.
+\]
+\end{definition}
+
+\begin{note}
+The conversion between forms is:
+\[
+  x = r\cos\theta, \qquad y = r\sin\theta, \qquad
+  r = \sqrt{x^2+y^2}, \qquad \theta = \tan^{-1}\!\!\left(\frac{y}{x}\right).
+\]
+\end{note}
+
+% -------------------------------------------------------
+\section{Multiplication and Division}
+% -------------------------------------------------------
+
+\begin{theorem}[Multiplication in Polar Form]
+If $z_1 = r_1 e^{j\theta_1}$ and $z_2 = r_2 e^{j\theta_2}$, then
+\[
+  z_1 z_2 = r_1 r_2\,\bigl[\cos(\theta_1+\theta_2) + j\sin(\theta_1+\theta_2)\bigr].
+\]
+Moduli multiply; arguments add.
+\end{theorem}
+
+\begin{theorem}[Division in Polar Form]
+\[
+  \frac{z_1}{z_2} = \frac{r_1}{r_2}\,\bigl[\cos(\theta_1-\theta_2) + j\sin(\theta_1-\theta_2)\bigr].
+\]
+Moduli divide; arguments subtract.
+\end{theorem}
+
+% -------------------------------------------------------
+\section{De Moivre's Theorem}
+% -------------------------------------------------------
+
+\begin{theorem}[De Moivre's Theorem]
+For any integer $n$:
+\[
+  z^n = r^n(\cos n\theta + j\sin n\theta).
+\]
+\end{theorem}
+
+\begin{theorem}[$n$-th Roots]
+The $n$ distinct $n$-th roots of $z = re^{j\theta}$ are
+\[
+  z_k = r^{1/n}\left[\cos\!\left(\frac{\theta + 2k\pi}{n}\right)
+                    + j\sin\!\left(\frac{\theta + 2k\pi}{n}\right)\right],
+  \qquad k = 0, 1, \ldots, n-1.
+\]
+The roots are equally spaced around a circle of radius $r^{1/n}$ in the Argand diagram.
+\end{theorem}
+
+% -------------------------------------------------------
+\section{Euler's Formula and Key Identities}
+\label{sec:euler}
+% -------------------------------------------------------
+
+\begin{theorem}[Euler's Formula]
+\[
+  e^{j\theta} = \cos\theta + j\sin\theta.
+\]
+\end{theorem}
+
+From Euler's formula, adding and subtracting $e^{j\theta}$ and $e^{-j\theta}$ yields:
+
+\begin{corollary}
+\[
+  \cos\theta = \frac{e^{j\theta} + e^{-j\theta}}{2}, \qquad
+  \sin\theta = \frac{e^{j\theta} - e^{-j\theta}}{2j}.
+\]
+\end{corollary}
+
+\begin{example}[Euler's Identity]
+Setting $\theta = \pi$:
+\[
+  e^{j\pi} + 1 = 0.
+\]
+\end{example}

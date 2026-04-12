@@ -1,0 +1,105 @@
+\chapter{Hypothesis Testing}
+
+% -------------------------------------------------------
+\section{Hypotheses}
+% -------------------------------------------------------
+
+\begin{definition}[Null Hypothesis]
+The \textbf{null hypothesis} $H_0$ is the default assumption — typically a statement of
+no effect, no difference, or a specific parameter value. It is the hypothesis we attempt
+to reject.
+\end{definition}
+
+\begin{definition}[Alternative Hypothesis]
+The \textbf{alternative hypothesis} $H_1$ (or $H_a$) is the claim we seek evidence for.
+It is accepted when $H_0$ is rejected.
+\end{definition}
+
+% -------------------------------------------------------
+\section{Types of Error}
+% -------------------------------------------------------
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{lcc}
+\toprule
+ & \textbf{$H_0$ is True} & \textbf{$H_0$ is False} \\
+\midrule
+\textbf{Reject $H_0$}     & Type I error ($\alpha$) & Correct decision \\
+\textbf{Fail to reject $H_0$} & Correct decision    & Type II error ($\beta$) \\
+\bottomrule
+\end{tabular}
+\caption{Decision outcomes in hypothesis testing.}
+\end{table}
+
+\begin{definition}[Type I Error]
+Rejecting $H_0$ when it is in fact \emph{true}. The probability of a Type I error is the
+\textbf{significance level} $\alpha$.
+\end{definition}
+
+\begin{definition}[Type II Error]
+Failing to reject $H_0$ when it is in fact \emph{false}. The probability of a Type II
+error is $\beta$.
+\end{definition}
+
+% -------------------------------------------------------
+\section{Significance Level}
+% -------------------------------------------------------
+
+\begin{definition}[Significance Level]
+The \textbf{significance level} $\alpha$ is the maximum acceptable probability of
+committing a Type I error. A common choice is
+\[
+  \alpha = 0.05 \quad (5\%).
+\]
+\end{definition}
+
+% -------------------------------------------------------
+\section{Test Statistics}
+% -------------------------------------------------------
+
+\subsection{Z-Test}
+
+Used when the population standard deviation $\sigma$ is \emph{known}, or when the
+sample size $n$ is large ($n \geq 30$).
+
+\begin{definition}[Z-Test Statistic]
+\[
+  Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}},
+\]
+where $\bar{X}$ is the sample mean, $\mu$ is the hypothesised population mean,
+$\sigma$ is the population standard deviation, and $n$ is the sample size.
+Under $H_0$, $Z \sim \mathcal{N}(0,1)$.
+\end{definition}
+
+\subsection{$t$-Test}
+
+Used when $\sigma$ is \emph{unknown} and the sample size is small.
+
+\begin{definition}[$t$-Test Statistic]
+\[
+  T = \frac{\bar{X} - \mu}{s / \sqrt{n}},
+\]
+where $s$ is the sample standard deviation. Under $H_0$, $T \sim t_{n-1}$
+(Student's $t$-distribution with $n-1$ degrees of freedom).
+\end{definition}
+
+% -------------------------------------------------------
+\section{Decision Rule}
+% -------------------------------------------------------
+
+\begin{theorem}[Decision Rule]
+There are two equivalent formulations:
+\begin{enumerate}
+  \item \textbf{Critical value approach}: Reject $H_0$ if the computed test statistic
+        exceeds the critical value at significance level $\alpha$.
+  \item \textbf{$p$-value approach}: Reject $H_0$ if the $p$-value $\leq \alpha$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+The $p$-value is the probability of observing a test statistic at least as extreme as
+the one computed, assuming $H_0$ is true. A small $p$-value provides strong evidence
+against $H_0$.
+\end{remark}

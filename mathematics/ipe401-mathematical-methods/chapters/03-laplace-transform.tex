@@ -1,0 +1,83 @@
+\chapter{Laplace Transform}
+
+% -------------------------------------------------------
+\section{Definition}
+% -------------------------------------------------------
+
+\begin{definition}[Laplace Transform]
+The \textbf{Laplace transform} of a function $f(t)$, defined for $t \geq 0$, is
+\[
+  \mathcal{L}\{f(t)\} = F(s) = \int_0^{\infty} f(t)\,e^{-st}\,dt,
+\]
+provided the integral converges.
+\end{definition}
+
+\begin{remark}
+The transform converts a function of time $t$ into a function of the complex frequency
+variable $s$. This converts differential equations into algebraic equations.
+\end{remark}
+
+% -------------------------------------------------------
+\section{Standard Results}
+% -------------------------------------------------------
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{ll}
+\toprule
+$f(t)$ & $\mathcal{L}\{f(t)\} = F(s)$ \\
+\midrule
+$1$              & $\dfrac{1}{s}$                         \\[4pt]
+$t$              & $\dfrac{1}{s^2}$                       \\[4pt]
+$t^n$            & $\dfrac{n!}{s^{n+1}}$                  \\[4pt]
+$e^{at}$         & $\dfrac{1}{s-a}$                       \\[4pt]
+$\sin at$        & $\dfrac{a}{s^2+a^2}$                   \\[4pt]
+$\cos at$        & $\dfrac{s}{s^2+a^2}$                   \\[4pt]
+$e^{at}\sin bt$  & $\dfrac{b}{(s-a)^2+b^2}$              \\[4pt]
+$e^{at}\cos bt$  & $\dfrac{s-a}{(s-a)^2+b^2}$            \\
+\bottomrule
+\end{tabular}
+\caption{Standard Laplace transform pairs.}
+\end{table}
+
+% -------------------------------------------------------
+\section{Transform of Derivatives}
+% -------------------------------------------------------
+
+\begin{theorem}[First Derivative]
+\[
+  \mathcal{L}\{f'(t)\} = sF(s) - f(0).
+\]
+\end{theorem}
+
+\begin{theorem}[Second Derivative]
+\[
+  \mathcal{L}\{f''(t)\} = s^2F(s) - s\,f(0) - f'(0).
+\]
+\end{theorem}
+
+\begin{theorem}[$n$-th Derivative]
+\[
+  \mathcal{L}\{f^{(n)}(t)\} = s^n F(s) - s^{n-1}f(0) - s^{n-2}f'(0) - \cdots - f^{(n-1)}(0).
+\]
+\end{theorem}
+
+% -------------------------------------------------------
+\section{Solving ODEs with the Laplace Transform}
+% -------------------------------------------------------
+
+\begin{theorem}[Method of Solution]
+To solve an initial value problem using the Laplace transform:
+\begin{enumerate}
+  \item Take the Laplace transform of both sides of the ODE.
+  \item Substitute the initial conditions.
+  \item Solve algebraically for $F(s) = \mathcal{L}\{y(t)\}$.
+  \item Apply the inverse Laplace transform to recover $y(t)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+Step 4 typically uses partial fraction decomposition together with the standard
+results table to identify $y(t)$.
+\end{remark}

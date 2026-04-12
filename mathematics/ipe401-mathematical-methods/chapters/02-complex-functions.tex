@@ -1,0 +1,84 @@
+\chapter{Complex Functions and Analyticity}
+
+% -------------------------------------------------------
+\section{Complex Functions}
+% -------------------------------------------------------
+
+\begin{definition}[Complex Function]
+A \textbf{complex function} $f(z)$ maps complex numbers to complex numbers. Writing
+$z = x + jy$, the function separates into real and imaginary parts:
+\[
+  f(z) = u(x,y) + jv(x,y),
+\]
+where $u(x,y) = \operatorname{Re}(f)$ and $v(x,y) = \operatorname{Im}(f)$ are real-valued
+functions of two real variables.
+\end{definition}
+
+% -------------------------------------------------------
+\section{Cauchy--Riemann Equations}
+% -------------------------------------------------------
+
+\begin{theorem}[Cauchy--Riemann Equations]
+A necessary condition for $f(z) = u + jv$ to be differentiable at a point is that
+the \textbf{Cauchy--Riemann (CR) equations} hold there:
+\[
+  \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \qquad
+  \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
+\]
+\end{theorem}
+
+% -------------------------------------------------------
+\section{Analytic Functions}
+% -------------------------------------------------------
+
+\begin{definition}[Analytic Function]
+A complex function $f(z)$ is \textbf{analytic} (or \textbf{holomorphic}) at a point $z_0$
+if it is differentiable at every point in some neighbourhood of $z_0$.
+\end{definition}
+
+\begin{theorem}[Condition for Analyticity]
+$f(z) = u + jv$ is analytic in a domain $D$ if and only if:
+\begin{enumerate}
+  \item the Cauchy--Riemann equations are satisfied throughout $D$, and
+  \item the partial derivatives $u_x,\, u_y,\, v_x,\, v_y$ are continuous in $D$.
+\end{enumerate}
+\end{theorem}
+
+% -------------------------------------------------------
+\section{Harmonic Functions}
+% -------------------------------------------------------
+
+\begin{definition}[Harmonic Function]
+A real-valued function $u(x,y)$ is \textbf{harmonic} in a domain $D$ if it satisfies
+Laplace's equation:
+\[
+  \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+\]
+\end{definition}
+
+\begin{theorem}
+If $f(z) = u + jv$ is analytic in $D$, then both $u$ and $v$ are harmonic in $D$.
+The function $v$ is called the \textbf{harmonic conjugate} of $u$.
+\end{theorem}
+
+\begin{remark}
+Given a harmonic function $u$, its harmonic conjugate $v$ can always be found (up to a
+constant) by integrating the Cauchy--Riemann equations.
+\end{remark}
+
+% -------------------------------------------------------
+\section{Laplace's Equation}
+% -------------------------------------------------------
+
+\begin{definition}[Laplace's Equation]
+\[
+  \nabla^2 u = 0, \qquad \text{i.e.} \qquad
+  \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+\]
+\end{definition}
+
+\begin{remark}
+Laplace's equation governs steady-state temperature, electrostatic potential, and
+irrotational fluid flow. Its connection to complex analysis — via analytic functions
+and harmonic functions — makes complex methods a powerful tool in applied engineering.
+\end{remark}

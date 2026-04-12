@@ -1,0 +1,77 @@
+\chapter{Fourier Series and Fourier Transform}
+
+% -------------------------------------------------------
+\section{Fourier Series}
+% -------------------------------------------------------
+
+\begin{definition}[Fourier Series]
+A periodic function $f(x)$ with period $2\pi$ can be represented as
+\[
+  f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\bigl(a_n\cos nx + b_n\sin nx\bigr),
+\]
+where the \textbf{Fourier coefficients} are:
+\begin{align*}
+  a_0 &= \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\,dx, \\[6pt]
+  a_n &= \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos nx\,dx, \qquad n = 1,2,3,\ldots \\[6pt]
+  b_n &= \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin nx\,dx, \qquad n = 1,2,3,\ldots
+\end{align*}
+\end{definition}
+
+% -------------------------------------------------------
+\section{Even and Odd Functions}
+% -------------------------------------------------------
+
+\begin{definition}[Even Function]
+$f(x)$ is \textbf{even} if $f(-x) = f(x)$ for all $x$.
+\end{definition}
+
+\begin{definition}[Odd Function]
+$f(x)$ is \textbf{odd} if $f(-x) = -f(x)$ for all $x$.
+\end{definition}
+
+\begin{theorem}[Symmetry Simplification]
+\begin{itemize}
+  \item If $f$ is \textbf{even}: all $b_n = 0$; the series contains \emph{cosine terms only}.
+  \item If $f$ is \textbf{odd}: $a_0 = 0$ and all $a_n = 0$; the series contains
+        \emph{sine terms only}.
+\end{itemize}
+\end{theorem}
+
+% -------------------------------------------------------
+\section{Half-Range Expansions}
+% -------------------------------------------------------
+
+For a function defined on $[0, \pi]$, we can extend it as either even or odd and
+compute a \textbf{half-range} series:
+
+\paragraph{Half-range cosine series} (even extension):
+\[
+  a_n = \frac{2}{\pi}\int_0^{\pi} f(x)\cos nx\,dx, \qquad n = 0, 1, 2, \ldots
+\]
+
+\paragraph{Half-range sine series} (odd extension):
+\[
+  b_n = \frac{2}{\pi}\int_0^{\pi} f(x)\sin nx\,dx, \qquad n = 1, 2, 3, \ldots
+\]
+
+% -------------------------------------------------------
+\section{Fourier Transform}
+% -------------------------------------------------------
+
+\begin{definition}[Fourier Transform]
+The \textbf{Fourier transform} of $f(x)$ is
+\[
+  F(\omega) = \mathcal{F}\{f(x)\} = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} f(x)\,e^{-j\omega x}\,dx.
+\]
+\end{definition}
+
+\begin{definition}[Inverse Fourier Transform]
+\[
+  f(x) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} F(\omega)\,e^{j\omega x}\,d\omega.
+\]
+\end{definition}
+
+\begin{remark}
+The Fourier transform decomposes a non-periodic function into a continuous spectrum
+of frequencies. It extends naturally from Fourier series as the period tends to infinity.
+\end{remark}

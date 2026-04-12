@@ -1,0 +1,62 @@
+\chapter{Classification of Second-Order PDEs}
+
+\begin{remark}
+This chapter summarises PDE classification as it appears in the IPE 401 syllabus.
+A full treatment — including the heat and wave equations solved by separation of
+variables — is given in the MTS 415 notes.
+\end{remark}
+
+% -------------------------------------------------------
+\section{General Second-Order Form}
+% -------------------------------------------------------
+
+The general second-order linear PDE in two variables $x$ and $y$ is
+\[
+  a\,\frac{\partial^2 u}{\partial x^2}
+  + b\,\frac{\partial^2 u}{\partial x\,\partial y}
+  + c\,\frac{\partial^2 u}{\partial y^2}
+  + \cdots = 0,
+\]
+where $a$, $b$, $c$ are (possibly variable) coefficients.
+
+% -------------------------------------------------------
+\section{Classification by Discriminant}
+% -------------------------------------------------------
+
+\begin{theorem}[Discriminant Classification]
+The type of the PDE is determined by the discriminant $\Delta = b^2 - 4ac$:
+\end{theorem}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Type}   & \textbf{Condition}      & \textbf{Canonical Example} \\
+\midrule
+Elliptic        & $b^2 - 4ac < 0$         & Laplace equation           \\
+Parabolic       & $b^2 - 4ac = 0$         & Heat equation              \\
+Hyperbolic      & $b^2 - 4ac > 0$         & Wave equation              \\
+\bottomrule
+\end{tabular}
+\caption{Classification of second-order PDEs.}
+\end{table}
+
+% -------------------------------------------------------
+\section{Canonical Examples}
+% -------------------------------------------------------
+
+\subsection{Elliptic — Laplace's Equation}
+\[
+  u_{xx} + u_{yy} = 0 \quad (a=1,\; b=0,\; c=1 \;\Rightarrow\; \Delta = -4 < 0)
+\]
+
+\subsection{Parabolic — Heat Equation}
+\[
+  u_t = \beta\,u_{xx} \quad (b=0,\; c=0 \;\Rightarrow\; \Delta = 0)
+\]
+
+\subsection{Hyperbolic — Wave Equation}
+\[
+  u_{tt} = \alpha^2 u_{xx} \quad (a=-\alpha^2,\; b=0,\; c=1 \;\Rightarrow\; \Delta = 4\alpha^2 > 0)
+\]
