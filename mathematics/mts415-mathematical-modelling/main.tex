@@ -1,0 +1,48 @@
+\documentclass[12pt, a4paper]{book}
+
+\input{../../shared/preamble}
+
+% Subject-specific metadata
+\newcommand{\subjectcode}{MTS 415}
+\newcommand{\subjecttitle}{Mathematical Modelling}
+\newcommand{\subjectsubtitle}{Differential Equations \& Integral Equations}
+
+\hypersetup{
+  pdftitle  = {\subjectcode: \subjecttitle},
+  pdfauthor = {Engineering Notes}
+}
+
+\begin{document}
+
+% ----- Title Page -----
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+  {\Huge\bfseries \subjectcode \par}
+  \vspace{0.5em}
+  {\LARGE \subjecttitle \par}
+  \vspace{0.3em}
+  {\large \subjectsubtitle \par}
+  \vfill
+  {\large Engineering Notes \par}
+  \vspace{0.5em}
+  {\normalsize \today \par}
+\end{titlepage}
+
+% ----- Table of Contents -----
+\tableofcontents
+\newpage
+
+% ----- Chapters -----
+\input{chapters/01-mathematical-modelling}
+\input{chapters/02-differential-equations}
+\input{chapters/03-ivp-bvp}
+\input{chapters/04-classification}
+\input{chapters/05-first-order-methods}
+\input{chapters/06-second-order-ode}
+\input{chapters/07-pde}
+\input{chapters/08-heat-equation}
+\input{chapters/09-wave-equation}
+\input{chapters/10-integral-equations}
+
+\end{document}

@@ -1,0 +1,74 @@
+\chapter{Partial Differential Equations}
+
+% -------------------------------------------------------
+\section{General Second-Order Form}
+% -------------------------------------------------------
+
+The general second-order linear PDE in two independent variables $x$ and $y$ is
+\[
+  a\,u_{xx} + b\,u_{xy} + c\,u_{yy} + d\,u_x + e\,u_y + f\,u = g(x,y),
+\]
+where $a$, $b$, $c$, $d$, $e$, $f$ are (possibly variable) coefficients and subscripts denote partial derivatives.
+
+% -------------------------------------------------------
+\section{Classification}
+% -------------------------------------------------------
+
+\begin{theorem}[Classification by Discriminant]
+The type of the second-order PDE is determined by the \textbf{discriminant} $\Delta = b^2 - 4ac$:
+\end{theorem}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lcc}
+\toprule
+\textbf{PDE Type} & \textbf{Condition} & \textbf{Physical Analogue} \\
+\midrule
+Elliptic   & $b^2 - 4ac < 0$ & Steady-state (e.g.\ Laplace) \\
+Parabolic  & $b^2 - 4ac = 0$ & Diffusion (e.g.\ Heat equation) \\
+Hyperbolic & $b^2 - 4ac > 0$ & Wave propagation \\
+\bottomrule
+\end{tabular}
+\caption{Classification of second-order PDEs.}
+\end{table}
+
+% -------------------------------------------------------
+\section{Canonical Examples}
+% -------------------------------------------------------
+
+\subsection{Elliptic: Laplace's Equation}
+
+\[
+  u_{xx} + u_{yy} = 0
+\]
+
+Here $a=1$, $b=0$, $c=1$, so $b^2 - 4ac = 0 - 4 = -4 < 0$. \textbf{Elliptic.}
+
+\begin{remark}
+Laplace's equation governs steady-state temperature distributions, electrostatics, and irrotational fluid flow.
+\end{remark}
+
+\subsection{Parabolic: Heat Equation}
+
+\[
+  u_t = \beta\, u_{xx}
+\]
+
+Rewriting as $-\beta\,u_{xx} + u_t = 0$, we identify $a = \beta$, $b = 0$, $c = 0$ (treating $t$ as the second spatial variable), giving $b^2 - 4ac = 0$. \textbf{Parabolic.}
+
+\begin{remark}
+The heat equation models diffusion processes: heat conduction, mass diffusion, and probability densities in stochastic processes.
+\end{remark}
+
+\subsection{Hyperbolic: Wave Equation}
+
+\[
+  u_{tt} = \alpha^2\, u_{xx}
+\]
+
+With $a = -\alpha^2$, $b = 0$, $c = 1$ (identifying independent variables $x$ and $t$), we get $b^2 - 4ac = 0 + 4\alpha^2 > 0$. \textbf{Hyperbolic.}
+
+\begin{remark}
+The wave equation describes vibrating strings, acoustic waves, and electromagnetic wave propagation.
+\end{remark}

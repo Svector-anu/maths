@@ -1,0 +1,162 @@
+\chapter{Methods of Solving First-Order ODEs}
+
+% -------------------------------------------------------
+\section{Separable Equations}
+% -------------------------------------------------------
+
+\begin{definition}[Separable Equation]
+A first-order ODE is \textbf{separable} if it can be written in the form
+\[
+  \frac{dy}{dx} = f(x)\,g(y).
+\]
+\end{definition}
+
+\subsection{Method}
+
+Separate the variables so that all $y$-terms are on one side and all $x$-terms on the other:
+\[
+  \frac{dy}{g(y)} = f(x)\,dx.
+\]
+Integrate both sides:
+\[
+  \int \frac{dy}{g(y)} = \int f(x)\,dx + C.
+\]
+
+\begin{example}
+Solve $\displaystyle x\,\frac{dy}{dx} + y = 0$.
+
+\begin{solution}
+Rewrite:
+\[
+  \frac{dy}{dx} = -\frac{y}{x}.
+\]
+Separate:
+\[
+  \frac{dy}{y} = -\frac{dx}{x}.
+\]
+Integrate both sides:
+\[
+  \ln|y| = -\ln|x| + C_1.
+\]
+Exponentiate:
+\[
+  |y| = e^{C_1}\cdot\frac{1}{|x|}.
+\]
+Writing $C = \pm e^{C_1}$ as an arbitrary constant:
+\[
+  \boxed{y = \frac{C}{x}.}
+\]
+\end{solution}
+\end{example}
+
+% -------------------------------------------------------
+\section{Linear First-Order Equations}
+% -------------------------------------------------------
+
+\begin{definition}[Standard Linear Form]
+A first-order ODE is in \textbf{standard linear form} when written as
+\[
+  \frac{dy}{dx} + P(x)\,y = Q(x).
+\]
+\end{definition}
+
+\subsection{Method: Integrating Factor}
+
+\begin{theorem}[Integrating Factor Method]
+Multiply both sides of $y' + P(x)y = Q(x)$ by the \textbf{integrating factor}
+\[
+  \IF(x) = e^{\int P(x)\,dx}.
+\]
+The left-hand side becomes an exact derivative:
+\[
+  \frac{d}{dx}\!\left[\IF(x)\cdot y\right] = \IF(x)\cdot Q(x).
+\]
+Integrate both sides to obtain $y$.
+\end{theorem}
+
+\begin{example}
+Solve $\displaystyle\frac{dy}{dx} + 3y = e^{2x}$.
+
+\begin{solution}
+Here $P(x)=3$ and $Q(x)=e^{2x}$.
+
+\textbf{Step 1 — Integrating factor:}
+\[
+  \IF = e^{\int 3\,dx} = e^{3x}.
+\]
+
+\textbf{Step 2 — Multiply through:}
+\[
+  e^{3x}\frac{dy}{dx} + 3e^{3x}y = e^{3x}\cdot e^{2x} = e^{5x}.
+\]
+The left-hand side is $\dfrac{d}{dx}\!\left(ye^{3x}\right)$, so:
+\[
+  \frac{d}{dx}\!\left(ye^{3x}\right) = e^{5x}.
+\]
+
+\textbf{Step 3 — Integrate:}
+\[
+  ye^{3x} = \int e^{5x}\,dx = \frac{e^{5x}}{5} + C.
+\]
+
+\textbf{Step 4 — Solve for $y$:}
+\[
+  \boxed{y = \frac{e^{2x}}{5} + Ce^{-3x}.}
+\]
+\end{solution}
+\end{example}
+
+% -------------------------------------------------------
+\section{Homogeneous First-Order Equations}
+% -------------------------------------------------------
+
+\begin{definition}[Homogeneous First-Order ODE]
+A first-order ODE is \textbf{homogeneous} (in the function-form sense) if it can be written as
+\[
+  \frac{dy}{dx} = f\!\left(\frac{y}{x}\right).
+\]
+\end{definition}
+
+\subsection{Method: Substitution}
+
+Let $v = \dfrac{y}{x}$, so $y = vx$. Then
+\[
+  \frac{dy}{dx} = v + x\,\frac{dv}{dx}.
+\]
+Substituting converts the equation into a separable ODE in $v$ and $x$.
+
+\begin{remark}
+After solving for $v(x)$, substitute back using $y = vx$.
+\end{remark}
+
+% -------------------------------------------------------
+\section{Exact Equations}
+% -------------------------------------------------------
+
+\begin{definition}[Exact Equation]
+The equation
+\[
+  M(x,y)\,dx + N(x,y)\,dy = 0
+\]
+is \textbf{exact} if there exists a function $F(x,y)$ such that
+\[
+  \frac{\partial F}{\partial x} = M \qquad\text{and}\qquad \frac{\partial F}{\partial y} = N,
+\]
+in which case the general solution is $F(x,y) = C$.
+\end{definition}
+
+\begin{theorem}[Exactness Condition]
+The equation $M\,dx + N\,dy = 0$ is exact if and only if
+\[
+  \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}.
+\]
+\end{theorem}
+
+\subsection{Method}
+
+\begin{enumerate}
+  \item Verify $\partial M/\partial y = \partial N/\partial x$.
+  \item Integrate $M$ with respect to $x$: $F = \int M\,dx + g(y)$.
+  \item Differentiate $F$ with respect to $y$ and set equal to $N$ to find $g'(y)$.
+  \item Integrate to obtain $g(y)$; the solution is $F(x,y) = C$.
+\end{enumerate}

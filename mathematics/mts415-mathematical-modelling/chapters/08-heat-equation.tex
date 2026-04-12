@@ -1,0 +1,145 @@
+\chapter{The Heat Equation}
+
+% -------------------------------------------------------
+\section{Standard Form}
+% -------------------------------------------------------
+
+\begin{definition}[Heat Equation]
+The \textbf{one-dimensional heat equation} is
+\[
+  u_t = \beta\, u_{xx}, \qquad 0 < x < L,\quad t > 0,
+\]
+where $u(x,t)$ is the temperature at position $x$ and time $t$, and $\beta > 0$ is the \textbf{thermal diffusivity}.
+\end{definition}
+
+% -------------------------------------------------------
+\section{Boundary and Initial Conditions}
+% -------------------------------------------------------
+
+The problem is completed by specifying:
+
+\paragraph{Boundary conditions (Dirichlet):}
+\[
+  u(0,t) = 0 \qquad \text{and} \qquad u(L,t) = 0, \quad t > 0.
+\]
+These represent zero temperature at both ends of the rod.
+
+\paragraph{Initial condition:}
+\[
+  u(x,0) = f(x), \qquad 0 \leq x \leq L.
+\]
+This prescribes the initial temperature profile.
+
+% -------------------------------------------------------
+\section{Solution by Separation of Variables}
+% -------------------------------------------------------
+
+\subsection{Assumption}
+
+Assume the solution has the product form
+\[
+  u(x,t) = X(x)\,T(t).
+\]
+
+\subsection{Substitution}
+
+Substituting into $u_t = \beta u_{xx}$:
+\[
+  X(x)\,T'(t) = \beta\, X''(x)\,T(t).
+\]
+Dividing both sides by $\beta X(x)T(t)$:
+\[
+  \frac{T'(t)}{\beta\, T(t)} = \frac{X''(x)}{X(x)} = k,
+\]
+where $k$ is the separation constant. Since the left side depends only on $t$ and the right side only on $x$, both must equal the same constant $k$.
+
+\subsection{Determining the Separation Constant}
+
+The boundary conditions $u(0,t)=0$ and $u(L,t)=0$ require
+\[
+  X(0) = 0 \qquad\text{and}\qquad X(L) = 0.
+\]
+For non-trivial solutions, we must take $k < 0$. Writing $k = -\lambda^2$, the $X$-equation becomes
+\[
+  X'' + \lambda^2 X = 0,
+\]
+with general solution $X(x) = A\cos(\lambda x) + B\sin(\lambda x)$.
+
+Applying the boundary conditions:
+\begin{align*}
+  X(0) = 0 &\implies A = 0, \\
+  X(L) = 0 &\implies B\sin(\lambda L) = 0 \implies \lambda L = n\pi,\quad n = 1,2,3,\ldots
+\end{align*}
+
+\subsection{Eigenvalues and Eigenfunctions}
+
+\begin{definition}[Eigenvalues and Eigenfunctions]
+The values
+\[
+  \lambda_n = \frac{n\pi}{L}, \qquad n = 1, 2, 3, \ldots
+\]
+are the \textbf{eigenvalues}, and the corresponding
+\[
+  X_n(x) = \sin\!\left(\frac{n\pi x}{L}\right)
+\]
+are the \textbf{eigenfunctions} of the spatial problem.
+\end{definition}
+
+Substituting $k = -\lambda_n^2$ into the time equation $T' = k\beta T$:
+\[
+  T_n(t) = e^{-\beta\left(n\pi/L\right)^2 t}.
+\]
+
+% -------------------------------------------------------
+\section{General Solution}
+% -------------------------------------------------------
+
+By superposition, the general solution is
+\[
+  \boxed{u(x,t) = \sum_{n=1}^{\infty} C_n\, e^{-\beta\left(n\pi/L\right)^2 t}\,\sin\!\left(\frac{n\pi x}{L}\right).}
+\]
+
+The coefficients $C_n$ are determined by the initial condition $u(x,0) = f(x)$ via a Fourier sine series:
+\[
+  C_n = \frac{2}{L}\int_0^L f(x)\,\sin\!\left(\frac{n\pi x}{L}\right)dx.
+\]
+
+% -------------------------------------------------------
+\section{Worked Example}
+% -------------------------------------------------------
+
+\begin{example}
+Solve the heat equation $u_t = 7\,u_{xx}$ on $[0,\pi]$ with boundary conditions $u(0,t)=u(\pi,t)=0$ and initial condition
+\[
+  u(x,0) = 3\sin 2x - 6\sin 5x.
+\]
+
+\begin{solution}
+Here $\beta = 7$, $L = \pi$, so $\lambda_n = n\pi/L = n$.
+
+The general solution reduces to
+\[
+  u(x,t) = \sum_{n=1}^{\infty} C_n\, e^{-7n^2 t}\,\sin(nx).
+\]
+
+Applying the initial condition:
+\[
+  u(x,0) = \sum_{n=1}^{\infty} C_n \sin(nx) = 3\sin 2x - 6\sin 5x.
+\]
+
+Matching coefficients by inspection:
+\[
+  C_2 = 3, \qquad C_5 = -6, \qquad C_n = 0 \text{ for all other } n.
+\]
+
+The time-decay exponents are:
+\[
+  7n^2\big|_{n=2} = 7(4) = 28, \qquad 7n^2\big|_{n=5} = 7(25) = 175.
+\]
+
+Therefore the solution is
+\[
+  \boxed{u(x,t) = 3e^{-28t}\sin 2x - 6e^{-175t}\sin 5x.}
+\]
+\end{solution}
+\end{example}

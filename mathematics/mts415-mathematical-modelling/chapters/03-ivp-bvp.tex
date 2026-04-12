@@ -1,0 +1,35 @@
+\chapter{Initial and Boundary Value Problems}
+
+% -------------------------------------------------------
+\section{Initial Value Problem}
+% -------------------------------------------------------
+
+\begin{definition}[Initial Value Problem]
+An \textbf{initial value problem} (IVP) is a differential equation together with conditions that specify the value of the solution (and possibly its derivatives) at a \emph{single point}.
+\end{definition}
+
+\begin{example}
+\[
+  \frac{dy}{dx} = f(x,y), \qquad y(x_0) = y_0
+\]
+The condition $y(0) = 1$ is a typical initial condition.
+\end{example}
+
+% -------------------------------------------------------
+\section{Boundary Value Problem}
+% -------------------------------------------------------
+
+\begin{definition}[Boundary Value Problem]
+A \textbf{boundary value problem} (BVP) is a differential equation together with conditions specified at \emph{two or more distinct points}.
+\end{definition}
+
+\begin{example}
+\[
+  y'' + y = 0, \qquad y(0) = 0,\quad y(\pi) = 1
+\]
+The conditions are prescribed at both endpoints of the interval $[0,\pi]$.
+\end{example}
+
+\begin{remark}
+IVPs arise naturally in time-evolution problems (all conditions given at $t = 0$), while BVPs arise in spatial problems (conditions given at the boundaries of a region).
+\end{remark}

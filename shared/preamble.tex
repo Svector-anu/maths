@@ -1,0 +1,99 @@
+% =============================================================
+%  Shared Preamble — Engineering Notes
+%  Include in any subject main.tex via:
+%    \input{../../shared/preamble}
+% =============================================================
+
+% --- Encoding & Fonts ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% --- Page Geometry ---
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
+
+% --- Math ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+
+% --- Graphics & Color ---
+\usepackage{graphicx}
+\usepackage[dvipsnames,table]{xcolor}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+
+% --- Lists ---
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=3pt, topsep=4pt}
+\setlist[enumerate]{itemsep=3pt, topsep=4pt}
+
+% --- Headers & Footers ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Hyperlinks (load last) ---
+\usepackage[
+  colorlinks = true,
+  linkcolor  = NavyBlue,
+  citecolor  = ForestGreen,
+  urlcolor   = NavyBlue,
+  pdftitle   = {Engineering Notes}
+]{hyperref}
+
+% =============================================================
+%  Theorem Environments
+% =============================================================
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+% =============================================================
+%  Common Math Macros
+% =============================================================
+
+% Number sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% Ordinary derivatives
+\newcommand{\dydx}{\dfrac{dy}{dx}}
+\newcommand{\ddx}[1]{\dfrac{d#1}{dx}}
+\newcommand{\ddt}[1]{\dfrac{d#1}{dt}}
+\newcommand{\dndx}[2]{\dfrac{d^{#2}#1}{dx^{#2}}}
+
+% Partial derivatives
+\newcommand{\pder}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\pdern}[3]{\dfrac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+% Norms & absolute values
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+% Integrating factor
+\newcommand{\IF}{\mathrm{IF}}

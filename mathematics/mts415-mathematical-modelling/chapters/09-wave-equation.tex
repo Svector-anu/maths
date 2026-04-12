@@ -1,0 +1,66 @@
+\chapter{The Wave Equation}
+
+% -------------------------------------------------------
+\section{Standard Form}
+% -------------------------------------------------------
+
+\begin{definition}[Wave Equation]
+The \textbf{one-dimensional wave equation} is
+\[
+  u_{tt} = \alpha^2\, u_{xx}, \qquad 0 < x < L,\quad t > 0,
+\]
+where $u(x,t)$ is the displacement at position $x$ and time $t$, and $\alpha > 0$ is the \textbf{wave speed}.
+\end{definition}
+
+% -------------------------------------------------------
+\section{General Solution by Separation of Variables}
+% -------------------------------------------------------
+
+Applying separation of variables $u = X(x)T(t)$ with homogeneous Dirichlet boundary conditions $u(0,t) = u(L,t) = 0$, one obtains eigenfunctions $X_n(x) = \sin(n\pi x/L)$ as in the heat equation, but now the time equation is
+\[
+  T'' + \left(\frac{\alpha n\pi}{L}\right)^2 T = 0,
+\]
+which has oscillatory (not decaying) solutions:
+\[
+  T_n(t) = A_n\cos\!\left(\frac{\alpha n\pi}{L}\,t\right) + B_n\sin\!\left(\frac{\alpha n\pi}{L}\,t\right).
+\]
+
+\begin{theorem}[General Solution of the Wave Equation]
+Subject to $u(0,t)=u(L,t)=0$, the general solution is
+\[
+  \boxed{u(x,t) = \sum_{n=1}^{\infty}
+    \left[A_n\cos\!\left(\frac{\alpha n\pi}{L}\,t\right)
+         + B_n\sin\!\left(\frac{\alpha n\pi}{L}\,t\right)\right]
+    \sin\!\left(\frac{n\pi x}{L}\right).}
+\]
+The coefficients $A_n$ and $B_n$ are determined by the two initial conditions $u(x,0)=f(x)$ and $u_t(x,0)=g(x)$.
+\end{theorem}
+
+\begin{remark}
+Each term in the sum is a \emph{standing wave} of frequency $\omega_n = \alpha n\pi / L$. The wave equation conserves energy, so the modes do not decay — unlike the heat equation.
+\end{remark}
+
+% -------------------------------------------------------
+\section{Verification of a Solution}
+% -------------------------------------------------------
+
+\begin{example}
+Verify that $u(x,t) = \sin x\cos(kt)$ satisfies the wave equation $u_{tt} = k^2 u_{xx}$.
+
+\begin{solution}
+Compute the required partial derivatives:
+\[
+  u_x = \cos x\cos(kt), \qquad u_{xx} = -\sin x\cos(kt),
+\]
+\[
+  u_t = -k\sin x\sin(kt), \qquad u_{tt} = -k^2\sin x\cos(kt).
+\]
+
+Check:
+\[
+  k^2\, u_{xx} = k^2\cdot\bigl(-\sin x\cos(kt)\bigr) = -k^2\sin x\cos(kt) = u_{tt}. \quad \checkmark
+\]
+
+The equation $u_{tt} = k^2 u_{xx}$ is satisfied, confirming $u(x,t) = \sin x\cos(kt)$ is a solution with wave speed $\alpha = k$.
+\end{solution}
+\end{example}

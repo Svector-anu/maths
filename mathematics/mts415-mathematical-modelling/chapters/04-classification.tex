@@ -1,0 +1,80 @@
+\chapter{Classification of Differential Equations}
+
+% -------------------------------------------------------
+\section{Order}
+% -------------------------------------------------------
+
+\begin{definition}[Order]
+The \textbf{order} of a differential equation is the order of the highest derivative present.
+\end{definition}
+
+\begin{example}
+\begin{align*}
+  \frac{dy}{dx} + y = 0 &\quad \text{(first order)} \\[6pt]
+  \frac{d^2y}{dx^2} + 3\frac{dy}{dx} + y = x &\quad \text{(second order)} \\[6pt]
+  \frac{d^3y}{dx^3} = \sin x &\quad \text{(third order)}
+\end{align*}
+\end{example}
+
+% -------------------------------------------------------
+\section{Linearity}
+% -------------------------------------------------------
+
+\subsection{Linear Differential Equation}
+
+\begin{definition}[Linear ODE]
+An ODE is \textbf{linear} if:
+\begin{enumerate}
+  \item the dependent variable and all its derivatives appear to the first power, and
+  \item there is no multiplication between the dependent variable and any of its derivatives.
+\end{enumerate}
+The general form of a linear $n$-th order ODE is
+\[
+  a_n(x)\,y^{(n)} + a_{n-1}(x)\,y^{(n-1)} + \cdots + a_1(x)\,y' + a_0(x)\,y = f(x).
+\]
+\end{definition}
+
+\begin{example}
+\[
+  \frac{dy}{dx} + 3y = x
+\]
+This is linear: $y$ and $dy/dx$ each appear to the first power and are not multiplied together.
+\end{example}
+
+\subsection{Non-Linear Differential Equation}
+
+\begin{definition}[Non-Linear ODE]
+An ODE is \textbf{non-linear} if the dependent variable or its derivatives appear in higher powers, under a non-linear function, or are multiplied together.
+\end{definition}
+
+\begin{example}
+\[
+  y\,\frac{dy}{dx} = x
+\]
+This is non-linear because $y$ is multiplied by $dy/dx$.
+\end{example}
+
+% -------------------------------------------------------
+\section{Homogeneous vs.\ Non-Homogeneous}
+% -------------------------------------------------------
+
+\begin{definition}[Homogeneous Equation]
+A linear ODE is \textbf{homogeneous} if the right-hand side is identically zero:
+\[
+  a_n(x)\,y^{(n)} + \cdots + a_0(x)\,y = 0.
+\]
+\end{definition}
+
+\begin{definition}[Non-Homogeneous Equation]
+A linear ODE is \textbf{non-homogeneous} if the right-hand side is a non-zero function:
+\[
+  a_n(x)\,y^{(n)} + \cdots + a_0(x)\,y = f(x), \qquad f(x) \not\equiv 0.
+\]
+\end{definition}
+
+\begin{example}
+\begin{align*}
+  y'' + y = 0 &\quad \text{(homogeneous)}\\
+  y'' + y = \sin x &\quad \text{(non-homogeneous, } f(x)=\sin x \text{)}
+\end{align*}
+\end{example}

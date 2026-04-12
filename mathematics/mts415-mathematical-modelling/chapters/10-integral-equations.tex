@@ -1,0 +1,113 @@
+\chapter{Integral Equations}
+
+% -------------------------------------------------------
+\section{Definition}
+% -------------------------------------------------------
+
+\begin{definition}[Integral Equation]
+An \textbf{integral equation} is an equation in which the unknown function appears under an integral sign.
+\end{definition}
+
+% -------------------------------------------------------
+\section{General Form and Parameters}
+% -------------------------------------------------------
+
+The standard form of a linear integral equation is
+\[
+  y(x) = f(x) + \lambda \int_a^b k(x,t)\,y(t)\,dt,
+\]
+where:
+\begin{itemize}
+  \item $y(x)$: the \textbf{unknown function} to be determined,
+  \item $f(x)$: the \textbf{free term} (known function),
+  \item $k(x,t)$: the \textbf{kernel} (known function of two variables),
+  \item $\lambda$: a scalar \textbf{parameter},
+  \item $[a,b]$: the limits of integration.
+\end{itemize}
+
+% -------------------------------------------------------
+\section{Classification}
+% -------------------------------------------------------
+
+Integral equations are classified along several independent axes.
+
+\subsection{By Limits of Integration}
+
+\begin{definition}[Fredholm Equation]
+An integral equation is of \textbf{Fredholm type} if both limits of integration $a$ and $b$ are \emph{constants}.
+\end{definition}
+
+\begin{definition}[Volterra Equation]
+An integral equation is of \textbf{Volterra type} if at least one limit of integration is a \emph{variable} (typically the upper limit is $x$).
+\end{definition}
+
+\subsection{By Position of the Unknown}
+
+\begin{definition}[First Kind]
+The unknown function $y$ appears \emph{only inside} the integral:
+\[
+  f(x) = \int_a^b k(x,t)\,y(t)\,dt.
+\]
+\end{definition}
+
+\begin{definition}[Second Kind]
+The unknown function $y$ appears both \emph{inside and outside} the integral (i.e.\ $y(x)$ explicitly on the left):
+\[
+  y(x) = f(x) + \lambda\int_a^b k(x,t)\,y(t)\,dt.
+\]
+\end{definition}
+
+\subsection{By Linearity}
+
+\begin{definition}[Linear Integral Equation]
+The equation is \textbf{linear} if $y$ appears to the first power inside the integral.
+\end{definition}
+
+\begin{definition}[Non-Linear Integral Equation]
+The equation is \textbf{non-linear} if $y$ appears in a power greater than one or inside a non-linear function under the integral.
+\end{definition}
+
+\subsection{By the Free Term}
+
+\begin{definition}[Homogeneous / Non-Homogeneous]
+If $f(x) \equiv 0$, the equation is \textbf{homogeneous}; otherwise it is \textbf{non-homogeneous}.
+\end{definition}
+
+% -------------------------------------------------------
+\section{Classification Examples}
+% -------------------------------------------------------
+
+\begin{example}
+Classify the integral equation
+\[
+  u(x) = x + \int_0^1 (x-t)^2\, u(t)\,dt.
+\]
+
+\begin{solution}
+\begin{itemize}
+  \item \textbf{Fredholm}: limits $0$ and $1$ are both constants.
+  \item \textbf{Second kind}: $u(x)$ appears outside the integral on the left.
+  \item \textbf{Linear}: $u(t)$ appears to the first power inside the integral.
+  \item \textbf{Non-homogeneous}: free term $f(x) = x \neq 0$.
+\end{itemize}
+\end{solution}
+\end{example}
+
+% -------------------------------------------------------
+\section{Verification of a Solution}
+% -------------------------------------------------------
+
+\begin{example}
+Verify that $u(x) = e^x$ satisfies the Volterra integral equation of the second kind:
+\[
+  u(x) = 1 + \int_0^x u(t)\,dt.
+\]
+
+\begin{solution}
+Substitute $u(t) = e^t$ into the right-hand side:
+\[
+  1 + \int_0^x e^t\,dt = 1 + \left[e^t\right]_0^x = 1 + e^x - e^0 = 1 + e^x - 1 = e^x.
+\]
+Since this equals the left-hand side $u(x) = e^x$, the solution is verified. $\checkmark$
+\end{solution}
+\end{example}
