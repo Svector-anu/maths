@@ -1,4 +1,4 @@
-# Engineering Maths Notes
+# engineering Maths Notes
 
 LaTeX notes for engineering mathematics subjects.
 
@@ -9,7 +9,7 @@ LaTeX notes for engineering mathematics subjects.
 | IPE 401 | Mathematical Methods in Production Engineering |
 | MTS 415 | Mathematical Modelling |
 
-## How to Read the Notes
+## how to Read the Notes
 
 ### Option 1 — Overleaf (recommended, no install)
 
@@ -18,11 +18,11 @@ LaTeX notes for engineering mathematics subjects.
 3. In Overleaf, go to **Menu → Main document** and select the `main.tex` of the subject you want
 4. Click **Compile** — the PDF appears on the right
 
-To switch subjects, repeat step 3 with a different `main.tex`.
+to switch subjects, repeat step 3 with a different `main.tex`.
 
 ### Option 2 — Compile locally
 
-Requires MacTeX (`brew install --cask mactex`).
+requires MacTeX (`brew install --cask mactex`).
 
 ```bash
 cd mathematics/mts415-mathematical-modelling
